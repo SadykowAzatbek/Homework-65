@@ -34,9 +34,9 @@ const Pages = () => {
   }, [params.pageName]);
 
   let contentInfo = (
-    <div>
-      <h4>{content.title}</h4>
-      <p>{content.content}</p>
+    <div className="border p-4 mt-3 border-dark rounded-3">
+      <h4 className="text-center border-bottom">{content.title}</h4>
+      <p className="text-center">{content.content}</p>
     </div>
   );
 

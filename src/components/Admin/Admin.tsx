@@ -60,10 +60,14 @@ const Admin = () => {
   const formSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
+    setLoading(true);
+
     try {
       await axiosApi.put('pages/' + editPages + '.json', pagesInfo);
     } catch (err) {
       console.log('Error ' + err);
+    } finally {
+      setLoading(false);
     }
 
     navigate('/pages/' + editPages);
