@@ -1,35 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import {NavLink, Route, Routes} from 'react-router-dom';
+import Admin from './components/Admin/Admin';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className="d-flex justify-content-between bg-light p-3 rounded-3 mt-3">
+        <h1>Static pages</h1>
+        <nav>
+          <ul className="navbar-nav ms-auto flex-row gap-2 flex-nowrap">
+            <li className="nav-item">
+              <NavLink to="/pages/home">Home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/pages/about">About</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/pages/contacts">Contacts</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/pages/courses">Courses</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/" >Admin</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Admin />} />
+          <Route path="/pages/:pageName" element={} />
+        </Routes>
+      </main>
     </>
   )
 }
 
-export default App
+export default App;
