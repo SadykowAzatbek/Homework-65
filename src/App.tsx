@@ -1,6 +1,7 @@
 import './App.css';
 import {NavLink, Route, Routes} from 'react-router-dom';
 import Admin from './components/Admin/Admin';
+import Pages from './components/Pages/Pages';
 
 function App() {
   return (
@@ -22,15 +23,16 @@ function App() {
               <NavLink to="/pages/courses">Courses</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/" >Admin</NavLink>
+              <NavLink to="/pages/admin">Admin</NavLink>
             </li>
           </ul>
         </nav>
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Admin />} />
-          <Route path="/pages/:pageName" element={} />
+          <Route path="/" element={<h2>Выберите один из пунктов навигации</h2>} />
+          <Route path="/pages/:pageName" element={<Pages />} />
+          <Route path="/pages/admin" element={<Admin />} />
         </Routes>
       </main>
     </>
